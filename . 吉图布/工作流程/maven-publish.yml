@@ -1,0 +1,36 @@
+/*
+	*2021.11.9
+	*java138页实战练习
+	*实现随机生成大写字母
+	*创建者:管维
+	*实现目标:随机生成大写字母
+	*原理:利用三元运算符"?:"作为判断生成数值是否在65~90(A~Z)之间。在0~34之间用100减去就行.在35~64之间用叠加10的方法,每加10检查一次是否符合要求.91~99之间采用生成数值减去10.
+*/
+class shuijizhimu  //随机字母
+{
+	public static void main (String[] args) 
+	{
+                double rand = Math.random();
+                 System.out.println("随机生成数值(0~1)" + rand ) ; 
+                rand*=100;//将小数变为两位整数
+                int z1;
+                z1 = (int)rand;
+                int zhengshu = 65<z1? z1 : (100-z1) ;
+                zhengshu = zhengshu>90 ? (zhengshu-10) : (zhengshu);
+                zhengshu= 65<zhengshu ? zhengshu : (zhengshu+10);
+                zhengshu= 65<zhengshu ? zhengshu : (zhengshu+10);
+                zhengshu= 65<zhengshu ? zhengshu : (zhengshu+10);
+                zhengshu= 65<zhengshu ? zhengshu : (zhengshu+10);
+                char z2 ;
+                z2 = (char) zhengshu;
+                System.out.println("随机生成数值转换整数:" + z1) ;
+                System.out.println("最后整数:" + zhengshu) ;
+                System.out.println("生成的大写字母:" + z2) ; 
+                int xiaoxie = zhengshu+32;
+                /*为什么不能直接调用zhengshu这个数值*/"
+                char z3 ;
+                z3 = (char)xiaoxie ;
+                System.out.println("最后整数:" + xiaoxie) ;
+                System.out.println("生成的小写字母:" + z3) ; 
+	}
+}
